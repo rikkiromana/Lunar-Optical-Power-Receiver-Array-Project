@@ -1,2 +1,43 @@
-# Lunar-Optical-Power-Receiver-Array-Project
-Developing as a university capstone project in collaboration with the SUNLAB team, LOPRA is a lunar optical power receiving array designed to power shadowed lunar rovers. This repository contains Python and LTSpice codes for our photovoltaic array prototype, optimized to convert optical power transmissions into usable energy in space conditions.
+# Lunar Optical Power Receiver (LOPRA)
+
+Welcome to the Lunar Optical Power Receiver (LOPRA) repository! This repository contains Python and LTSpice codes for our photovoltaic array prototype designed to capture and convert optical power transmissions into usable energy for shadowed lunar rovers.
+
+## Repository Contents
+
+1. **Python Scripts:**  
+   Contains Python scripts for simulation, analysis, and control of the LOPRA system.
+
+2. **LTSpice Files:**  
+   Includes LTSpice files for simulating the behavior of the photovoltaic array under various conditions.
+
+## Using PyLTSpice
+
+We utilize PyLTSpice for simulation and analysis of our LTSpice models. To use PyLTSpice, follow these steps:
+
+1. **Install PyLTSpice:**  
+   You can install PyLTSpice using pip:
+   ```bash
+   pip install PyLTSpice
+   ```
+   PyLTSpice GitHub: https://github.com/nunobrum/PyLTSpice
+
+## Getting Started
+
+To get started with LOPRA, follow these steps:
+
+1. **Clone the Repository:**  
+Clone the LOPRA repository to your local machine using the following command:
+
+```bash
+git clone https://github.com/rikkiromana/Lunar-Optical-Power-Receiver-Array-Project.git
+```
+
+2. **Navigate to the Repository:**  
+Enter the repository directory:
+```bash
+cd Lunar-Optical-Power-Receiver-Array-Project
+```
+
+3. **Explore and Use:**  
+Explore the repository contents and use the provided Python and LTSpice files for simulation and analysis of the LOPRA system.
+
