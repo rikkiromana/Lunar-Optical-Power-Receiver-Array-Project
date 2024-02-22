@@ -2,6 +2,13 @@
 
 Welcome to the Lunar Optical Power Receiver (LOPRA) repository! This repository contains Python and LTSpice codes for our photovoltaic array prototype designed to capture and convert optical power transmissions into usable energy for shadowed lunar rovers.
 
+## Team Members
+
+- Eden Kindja Nehema
+- Hiruni Senarath
+- Jack Redmond
+- Rikki Romana
+
 ## Repository Contents
 
 1. **Python Scripts:**  
