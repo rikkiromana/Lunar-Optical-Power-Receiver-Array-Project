@@ -26,18 +26,18 @@ We utilize PyLTSpice for simulation and analysis of our LTSpice models. To use P
 To get started with LOPRA, follow these steps:
 
 1. **Clone the Repository:**  
-Clone the LOPRA repository to your local machine using the following command:
-
-```bash
-git clone https://github.com/rikkiromana/Lunar-Optical-Power-Receiver-Array-Project.git
-```
+   Clone the LOPRA repository to your local machine using the following command:
+   
+   ```bash
+   git clone https://github.com/rikkiromana/Lunar-Optical-Power-Receiver-Array-Project.git
+   ```
 
 2. **Navigate to the Repository:**  
-Enter the repository directory:
-```bash
-cd Lunar-Optical-Power-Receiver-Array-Project
-```
+   Enter the repository directory:
+   ```bash
+   cd Lunar-Optical-Power-Receiver-Array-Project
+   ```
 
 3. **Explore and Use:**  
-Explore the repository contents and use the provided Python and LTSpice files for simulation and analysis of the LOPRA system.
+   Explore the repository contents and use the provided Python and LTSpice files for simulation and analysis of the LOPRA system.
 
