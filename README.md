@@ -19,7 +19,7 @@ Welcome to the Lunar Optical Power Receiver (LOPRA) repository! This repository 
 
 ## Using PyLTSpice
 
-We utilize PyLTSpice for simulation and analysis of our LTSpice models. To use PyLTSpice, follow these steps:
+We will use PyLTSpice for simulation and analysis of our LTSpice models. To use PyLTSpice, follow these steps:
 
 1. **Install PyLTSpice:**  
    You can install PyLTSpice using pip:
