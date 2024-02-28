@@ -17,7 +17,7 @@ Welcome to the Lunar Optical Power Receiver (LOPRA) repository! This repository 
 2. **LTSpice Files:**  
    Includes LTSpice files for simulating the behavior of the photovoltaic array under various conditions.
 
-## Using PyLTSpice
+## Using PyLTSpice and Python Libraries
 
 We will use PyLTSpice for simulation and analysis of our LTSpice models. To use PyLTSpice, follow these steps:
 
@@ -27,6 +27,17 @@ We will use PyLTSpice for simulation and analysis of our LTSpice models. To use 
    pip install PyLTSpice
    ```
    PyLTSpice GitHub: https://github.com/nunobrum/PyLTSpice
+
+2. **Install Python Libraries:** 
+
+   You will also need to make sure you have the following Python libraries for running the scripts:
+   - `numpy`: For numerical computations
+   - `scipy`: For scientific computations and integration
+   - `matplotlib`: For data visualization
+   You can install these libraries using pip:
+    ```bash
+   pip install numpy scipy matplotlib
+   ```
 
 ## Getting Started
 
