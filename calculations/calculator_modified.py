@@ -11,7 +11,7 @@ beam_center_y_cm = 0
 beam_sigma_cm = 0.5
 voltage = 1.5  # Tension appliquée à la cellule photovoltaïque # voltage applied to the photovoltaic cell in volts
 n_air = 1  # Indice de réfraction de l'air # Air refraction index
-n_glass = 1.5  # Indice de réfraction du verre # Refractive index of glass
+n_glass = 1.51446  # Indice de réfraction du verre # Refractive index of glass
 
 # Fonction de distribution lumineuse gaussienne
 def light_distribution(x, y, beam_center_x_cm=beam_center_x_cm, beam_center_y_cm=beam_center_y_cm, beam_sigma_cm=beam_sigma_cm):
