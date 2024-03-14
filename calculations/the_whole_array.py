@@ -46,14 +46,7 @@ def calculate_photocurrent(light_intensity):
     photocurrent = iv_curve(output_nominal_voltage_v) * light_intensity
     return photocurrent
 
-# Calculate total output for a 3x3 array
-def calculate_total_output(series_voltage, light_intensity):
-    individual_photocurrent = calculate_photocurrent(light_intensity)
-    total_current = 3 * individual_photocurrent  # 3 series in parallel
-    total_voltage = series_voltage
-    return total_voltage, total_current
-
-# Function to simulate beam alignment for the whole array
+# Function to simulate beam alignment
 def simulate_beam_alignment():
     alignment_range = np.linspace(-0.5, 0.5, 20)
     max_photocurrent = 0
@@ -62,7 +55,7 @@ def simulate_beam_alignment():
     for x_shift in alignment_range:
         for y_shift in alignment_range:
             light_intensity = integrate_light_distribution_with_glass(x_shift, y_shift)
-            _, photocurrent = calculate_total_output(3 * output_nominal_voltage_v, light_intensity)
+            photocurrent = calculate_photocurrent(light_intensity)
             
             if photocurrent > max_photocurrent:
                 max_photocurrent = photocurrent
@@ -70,13 +63,45 @@ def simulate_beam_alignment():
 
     return optimal_position, max_photocurrent
 
+# Calculating total output for a 3x3 array
+def calculate_array_output(light_intensity):
+    # Calculate the photocurrent for a single cell
+    individual_photocurrent = calculate_photocurrent(light_intensity)
+    # For a 3x3 array with 3 cells in series and those series in parallel:
+    # Voltage is tripled for series connection
+    total_voltage = 3 * output_nominal_voltage_v
+    # Current is the same from each series and adds up in parallel
+    total_current = 3 * individual_photocurrent
+    return total_voltage, total_current
+
 # Main function to execute calculations and simulations
 def main():
-    series_voltage = 3 * output_nominal_voltage_v  # Voltage for 3 cells in series
+    # Initial light intensity and photocurrent calculations for a single cell
     initial_light_intensity = integrate_light_distribution_with_glass()
-    total_voltage, total_current = calculate_total_output(series_voltage, initial_light_intensity)
+    initial_photocurrent = calculate_photocurrent(initial_light_intensity)
+    print("Initial Light Intensity on Cell with Glass Cover:", initial_light_intensity)
+    print("Initial Photocurrent Generated in Cell:", initial_photocurrent, "A")
     
-    print(f"Total Voltage for 3x3 Array: {total_voltage} V")
-    print(f"Total Current for 3x3 Array: {total_current} A")
+    # Simulating beam alignment to find optimal position for a single cell
+    optimal_position, max_photocurrent = simulate_beam_alignment()
+    print(f"Optimal Beam Position: {optimal_position}, Max Photocurrent: {max_photocurrent} A")
+    
+    # For displaying Gaussian light distribution for a single cell
+    x = np.linspace(-cell_width_cm/2, cell_width_cm/2, 100)
+    y = np.linspace(-cell_height_cm/2, cell_height_cm/2, 100)
+    X, Y = np.meshgrid(x, y)
+    Z = gaussian(X, Y, optimal_position[0], optimal_position[1])
+    plt.contourf(X, Y, Z, cmap='viridis')
+    plt.colorbar(label='Intensity')
+    plt.title('Gaussian Distribution of Light on Photovoltaic Cell at Optimal Beam Position')
+    plt.xlabel('X (cm)')
+    plt.ylabel('Y (cm)')
+    plt.show()
 
-    optimal_position, max_light_intensity = simulate
+    # Calculating and displaying results for the 3x3 array
+    total_voltage, total_current = calculate_array_output(max_photocurrent)
+    print(f"Total Voltage for 3x3 Array: {total_voltage} V, Total Current: {total_current} A")
+
+if __name__ == "__main__":
+    main()
+
