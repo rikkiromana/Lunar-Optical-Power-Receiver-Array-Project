@@ -1,5 +1,4 @@
 # Purpose: This code simulates a Gaussian laser beam's light distribution over a 3x3 solar cell array and calculates the total photocurrent generated.
-# It helps in aligning solar panels to maximize energy capture from the beam.
 
 import numpy as np
 from scipy.integrate import dblquad
@@ -107,4 +106,3 @@ if __name__ == "__main__":
 
 # the output image will be a color-coded visual created by the code that shows how the intensity of the light varies across the array
 # the brightest area is at the center, where the beam is strongest, and it fades outwards
-# this helps understand where the light is most concentrated and where it is not, which is useful for designing the array layout/aligning the light source properly
