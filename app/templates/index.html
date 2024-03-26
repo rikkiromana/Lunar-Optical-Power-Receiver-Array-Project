@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulation Parameters</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Enter Simulation Parameters</h1>
+    <form method="post" action="/">
+        <label>Cell Width (m): <input type="text" name="cell_width_m" value="0.0135" /></label><br />
+        <label>Cell Height (m): <input type="text" name="cell_height_m" value="0.016" /></label><br />
+        <label>Beam Center X (m): <input type="text" name="beam_center_x_m" value="0.0" /></label><br />
+        <label>Beam Center Y (m): <input type="text" name="beam_center_y_m" value="0.0" /></label><br />
+        <label>Beam Waist (m): <input type="text" name="beam_waist_m" value="0.005" /></label><br />
+        <label>Gap Size (m): <input type="text" name="gap_size_m" value="0.001" /></label><br />
+        <label>Distance to Cells (m): <input type="text" name="distance_to_cells_m" value="100" /></label><br />
+        <label>Laser Wavelength (m): <input type="text" name="lambda_laser_m" value="1.52e-6" /></label><br />
+        <label>Number of Cells X: <input type="number" name="num_cells_x" value="3" /></label><br />
+        <label>Number of Cells Y: <input type="number" name="num_cells_y" value="3" /></label><br />
+        <label>Glass Refractive Index: <input type="text" name="glass_refractive_index" value="1.51446" /></label><br />
+        <label>Total Laser Power (W): <input type="text" name="P_total" value="500" /></label><br />
+        <input type="submit" value="Run Simulation">
+    </form>
+
+    {% if plot_url %}
+    <h2>Simulation Result</h2>
+    <img src="data:image/png;base64,{{ plot_url }}" alt="Simulation Result" style="max-width:100%;height:auto;">
+    {% endif %}
+
+    {% if light_intensities %}
+    <h2>Light Intensities for Each Cell (W/m²):</h2>
+    <table>
+        <thead>
+            <tr>
+                {% for x in range(num_cells_x) %}
+                <th>Cell X{{ x + 1 }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in light_intensities %}
+            <tr>
+                {% for value in row %}
+                <td>{{ value|round(12) }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html>
